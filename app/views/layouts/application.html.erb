@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PhotoApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+	<head>
+		<title>PhotoApp</title>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <body>
-    <%= yield %>
-  </body>
+		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= stylesheet_link_tag 'btn_outline_animated', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
+
+	<body>
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
+
+		<% if flash[:alert] %>
+			<%= flash[:alert] %>
+		<% end %>
+
+		<%= yield %>
+	</body>
 </html>

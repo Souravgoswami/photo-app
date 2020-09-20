@@ -1,0 +1,25 @@
+@import 'bootstrap/scss/bootstrap' ;
+
+html, body {
+	margin: 0 ;
+}
+
+.w-50 {
+	width: 80% !important ;
+}
+
+.centrify {
+	display: flex ;
+	align-items: center ;
+	flex-direction: column ;
+}
+
+.centrify-vertical {
+	display: flex ;
+	height: 80vh ;
+	justify-content: center ;
+}
+
+.display-block {
+	display: block ;
+}
