@@ -35,5 +35,6 @@ group :production do
 end
 
 gem "devise", "~> 4.7"
-
 gem "simple_form", "~> 5.0"
+
+gem "dotenv-rails", "~> 2.7"
