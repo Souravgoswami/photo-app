@@ -3,68 +3,86 @@
 	<h3>Welcome: <%= current_user.email %></h3>
 <% else %>
 	<div class="jumbotron">
-		<h2>Welcome to the Photo Management App!</h2>
+		<h2>Welcome to the PhotoApp</h2>
 
 		<p class="lead">
-			You'll love managing your Photos with our application. Sign up!
+			You can Ask for Donation or directly Sell Your Photos here
 		</p>
 	</div>
 
 		<div class="text-center">
 	<div class="row">
 			<div class="col-md-4">
-				<h2>Premium Plan</h2>
-				Price: $0
-				<div class="features">
-					<ul>
-						<li>Max 1000 Image Uploads</li>
-						<li>Upto 5 GB Storage</li>
-						<li>Responsive Design</li>
-						<li>Access Anywhere</li>
-					</ul>
-				</div>
+				<div class="card">
+					<div class="centrify p-2">
+						<%= image_tag 'opal.svg', class: 'card-img' %>
+					</div>
 
-				<p>
-					<%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
-				</p>
+					<div class="card-body">
+						<h2><span class="highlight">Free</span> Plan</h2>
+						<span class="price-tag-free">Price: $0</span>
+						<div class="features">
+							<ul>
+								<li>Max 1000 Image Uploads</li>
+								<li>Upto 5 GB Storage</li>
+								<li>Responsive Design</li>
+								<li>Access Anywhere</li>
+							</ul>
+						</div>
+
+						<p class="centrify">
+							<%= link_to 'Choose Plan', new_user_registration_path, class: 'btn-choose-free sign-up' %>
+						</p>
+					</div>
+				</div>
 			</div>
-
 			<div class="col-md-4">
-				<h2>Premium Plan</h2>
-				Price: $5
-				<div class="features">
-					<ul>
-						<li>Unlimited Image Uploads</li>
-						<li>Upto 15 GB Storage</li>
-						<li>Responsive Design</li>
-						<li>Access Anywhere</li>
-					</ul>
-				</div>
+				<div class="card">
+					<div class="centrify p-2">
+						<%= image_tag 'topaz.svg', class: 'card-img' %>
+					</div>
 
-				<p>
-					<%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
-				</p>
+					<div class="card-body">
+						<h2><span class="highlight">Pro</span> Plan</h2>
+						<span class="price-tag-pro">Price: $5</span>
+						<div class="features">
+							<ul>
+								<li>Unlimited Image Uploads</li>
+								<li>Upto 15 GB Storage</li>
+								<li>Responsive Design</li>
+								<li>Access Anywhere</li>
+							</ul>
+						</div>
+
+						<p class="centrify">
+							<%= link_to 'Choose Plan', new_user_registration_path, class: 'btn-choose-pro sign-up' %>
+						</p>
+					</div>
+				</div>
 			</div>
-
 			<div class="col-md-4">
-				<h2>Amaze Plan</h2>
+				<div class="card">
+					<div class="centrify p-2">
+						<%= image_tag 'gems.svg', class: 'card-img' %>
+					</div>
 
-				<div class="price pull-right">
-					Price: $10
+					<div class="card-body">
+						<h2><span class="highlight">Premium</span> Plan</h2>
+						<span class="price-tag-premium">Price: $10</span>
+						<div class="features">
+							<ul>
+								<li>Unlimited Image Uploads</li>
+								<li>Unlimited Storage</li>
+								<li>Responsive Design</li>
+								<li>Access Anywhere</li>
+							</ul>
+						</div>
+
+						<p class="centrify">
+							<%= link_to 'Choose Plan', new_user_registration_path, class: 'btn-choose-premium sign-up' %>
+						</p>
+					</div>
 				</div>
-
-				<div class="features">
-					<ul>
-						<li>Unlimited Image Uploads</li>
-						<li>Responsive Design</li>
-						<li>Access Anywhere</li>
-						<li class='extra'>Unlimited projects</li>
-					</ul>
-				</div>
-
-				<p>
-					<%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
-				</p>
 			</div>
 		</div>
 	</div>

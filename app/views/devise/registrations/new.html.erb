@@ -1,4 +1,8 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<script language='javascript'>
+	Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>")
+</script>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', class: 'cc_form' }) do |f| %>
 	<%= render "devise/shared/error_messages", resource: resource %>
 	<div class="centrify centrify-vertical">
 		<div class="w-50 shadow rounded card">
@@ -38,6 +42,42 @@
 						</div>
 					</div>
 
+					<%= fields_for :payment do |p| %>
+						<div class="row col-md-12">
+							<div class="form-group col-md-4">
+								<%= p.label :card_number, 'Card Number', data: { stripe: 'label' } %>
+								<%= p.text_field :card_number, class: 'form-control', required: 'true', data: { stripe: 'number' } %>
+							</div>
+
+							<div class="form-group col-md-2">
+								<%= p.label :card_cvv, 'Card CVV', data: { stripe: 'label' } %>
+								<%= p.text_field :card_cvv, class: 'form-control', required: 'true', data: { stripe: 'cvc' } %>
+							</div>
+
+							<div class="form-group col-md-6 row">
+								<%= p.label :card_expires, 'Card Expires', data: { stripe: 'label' } %>
+
+								<div class="col-md-12 row no-left-padding">
+									<div class="col-md-6">
+										<%= p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: 'Month' }, 'data-stripe' => 'exp-month', class: 'form-control', required: true %>
+									</div>
+
+									<div class="col-md-6">
+										<%= p.select :card_expires_year, options_for_select(Payment.year_options), { include_blank: 'Year' }, data: { stripe: 'exp-year' }, class: 'form-control', required: true %>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="x">
+						</div>
+
+						<div>
+
+						</div>
+
+					<% end %>
 					<div class="col-md-12">
 						<%= render "devise/shared/links" %>
 					</div>
